@@ -1,3 +1,5 @@
+import {getUsersReq} from "./api.js";
+
 export const CATALOG = 'catalog';
 export const FAVORITES = 'favorites';
 
@@ -36,4 +38,15 @@ const showPage = (page) => {
 
 function subscribeStore(state){
     showPage(state);
+}
+
+const getUsers = async () => {
+    let validUsersList = [];
+    let resp = await getUsersReq();
+    for(let user of resp){
+        if (user.name){
+            validUsersList.push(user);
+        }
+    }
+    return validUsersList;
 }
