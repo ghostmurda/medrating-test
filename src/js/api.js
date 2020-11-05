@@ -15,3 +15,11 @@ export const getAlbumsReq = async (userId) => {
         .then(data => respData = data)
     return respData;
 }
+
+export const getPhotosReq = async (albumId) => {
+    let respData = [];
+    await fetch(`${baseUrl}/photos?albumId=${albumId}`, {method: 'GET'})
+        .then(resp => resp.json())
+        .then(data => respData = data)
+    return respData;
+}

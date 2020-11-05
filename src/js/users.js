@@ -1,4 +1,5 @@
 import {getAlbumsReq} from "./api.js";
+import Albums from "./albums.js";
 
 const getAlbums = async (userId) => {
     let resp = await getAlbumsReq(userId);
@@ -15,10 +16,13 @@ export default class Users{
             .then(albumsList => {
                 for(let item of albumsList){
                     let album = document.createElement('div');
-                    album.className = 'user__album';
+                    album.classList.add('user__album', 'non-selected');
                     album.innerText = item.title;
+                    album.id = item.id;
                     user.append(album);
                 }
+                let currentAlbumsList = new Albums(document.querySelectorAll('.user__album'));
+                currentAlbumsList.addListener();
             })
     }
 

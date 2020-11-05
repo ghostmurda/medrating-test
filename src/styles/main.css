@@ -97,6 +97,11 @@ body{
     margin-left: 64px;
     margin-bottom: 16px;
     cursor: pointer;
+    transition: 0.2s;
+}
+
+.user__album:hover{
+    color: var(--color-active);
 }
 
 .user__album:nth-child(1){
@@ -104,9 +109,19 @@ body{
 }
 
 .user__album:before{
-    content: "\25B6";
+    content: "\25BC";
     margin-right: 16px;
     color: var(--color-active);
+}
+
+.album__photo{
+    margin-left: 96px;
+    max-width: 500px;
+    margin-bottom: 16px;
+}
+
+.album__photo:nth-child(1){
+    margin-top: 16px;
 }
 
 .non-selected:before{
