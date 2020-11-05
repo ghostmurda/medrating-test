@@ -38,9 +38,14 @@ export default class Users{
     addListener(){
         this.usersList.forEach(user => {
             user.addEventListener('click', () => {
-                this.clearUsersAlbums(user);
-                this.fillUsersAlbums(user);
-                user.classList.remove('user_non-selected', 'non-selected');
+                if(user.classList.contains('non-selected')){
+                    this.clearUsersAlbums(user);
+                    this.fillUsersAlbums(user);
+                    user.classList.remove('user_non-selected', 'non-selected');
+                } else {
+                    this.clearUsersAlbums(user);
+                    user.classList.add('user_non-selected', 'non-selected');
+                }
             })
         })
     }

@@ -35,9 +35,14 @@ export default class Albums{
     addListener(){
         this.albumsList.forEach(album => {
             album.addEventListener('click', (event) => {
-                this.clearAlbumsPhotos(album);
-                this.fillAlbumsPhotos(album);
-                album.classList.remove('non-selected');
+                if(album.classList.contains('non-selected')){
+                    this.clearAlbumsPhotos(album);
+                    this.fillAlbumsPhotos(album);
+                    album.classList.remove('non-selected');
+                } else{
+                    this.clearAlbumsPhotos(album);
+                    album.classList.add('non-selected');
+                }
                 event.stopPropagation();
             })
         })

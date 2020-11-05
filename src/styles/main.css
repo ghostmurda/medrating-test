@@ -61,6 +61,7 @@ body{
     font-size: var(--size-menu);
     margin-bottom: 16px;
     transition: 0.2s;
+    cursor: pointer;
 
     user-select: none;
     -moz-user-select: none;
@@ -78,10 +79,6 @@ body{
     content: "\25BC";
     margin-right: 16px;
     color: var(--color-active);
-}
-
-.user_non-selected{
-    cursor: pointer;
 }
 
 .user_non-selected:hover{
