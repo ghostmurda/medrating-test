@@ -20,6 +20,7 @@ export const store = new Proxy(pageState, {
 const showPage = (page) => {
     switch (page) {
         case CATALOG:{
+            clearCatalogUsers();
             fillCatalogUsers();
             catalogPage.classList.remove('hide');
             favoritesPage.classList.add('hide');
