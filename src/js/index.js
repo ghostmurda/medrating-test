@@ -1,4 +1,5 @@
 import {getUsersReq} from "./api.js";
+import Users from "./users.js";
 
 export const CATALOG = 'catalog';
 export const FAVORITES = 'favorites';
@@ -61,8 +62,11 @@ function fillCatalogUsers(){
                 let user = document.createElement('div');
                 user.className = 'user';
                 user.innerText = item.name;
+                user.id = item.id;
                 catalogPage.append(user);
             }
+            let currentUsersList = new Users(document.querySelectorAll('.user'));
+            currentUsersList.addListener();
         })
 }
 
