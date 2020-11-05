@@ -7,7 +7,7 @@ const catalogPage = document.querySelector('.content_type-catalog');
 const favoritesPage = document.querySelector('.content_type-favorites');
 
 const pageState = {
-    pageType: CATALOG
+    pageType: null
 }
 
 export const store = new Proxy(pageState, {
@@ -20,11 +20,13 @@ export const store = new Proxy(pageState, {
 const showPage = (page) => {
     switch (page) {
         case CATALOG:{
+            fillCatalogUsers();
             catalogPage.classList.remove('hide');
             favoritesPage.classList.add('hide');
             break
         }
         case FAVORITES: {
+            clearCatalogUsers();
             favoritesPage.classList.remove('hide');
             catalogPage.classList.add('hide');
             break
@@ -50,3 +52,24 @@ const getUsers = async () => {
     }
     return validUsersList;
 }
+
+function fillCatalogUsers(){
+    getUsers()
+        .then(usersList => {
+            for(let item of usersList){
+                let user = document.createElement('div');
+                user.className = 'user';
+                user.innerText = item.name;
+                catalogPage.append(user);
+            }
+        })
+}
+
+function clearCatalogUsers(){
+    const users = document.querySelectorAll('.user');
+    for(let user of users){
+        user.remove();
+    }
+}
+
+store.pageType = CATALOG;
