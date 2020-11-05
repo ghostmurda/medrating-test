@@ -61,12 +61,11 @@ body{
     font-size: var(--size-menu);
     margin-bottom: 16px;
     transition: 0.2s;
-    cursor: pointer;
 
     user-select: none;
     -moz-user-select: none;
 
-    max-width: 300px;
+    width: 100%;
     padding: 16px;
 
     background: white;
@@ -75,11 +74,42 @@ body{
     box-shadow: var(--shadow);
 }
 
-.user:hover{
+.user:before{
+    content: "\25BC";
+    margin-right: 16px;
+    color: var(--color-active);
+}
+
+.user_non-selected{
+    cursor: pointer;
+}
+
+.user_non-selected:hover{
     transform: scale(0.95);
     color: var(--color-active);
 }
 
-.user:active{
+.user_non-selected:active{
     text-decoration: underline;
+}
+
+.user__album{
+    margin-left: 64px;
+    margin-bottom: 16px;
+    cursor: pointer;
+}
+
+.user__album:nth-child(1){
+    margin-top: 16px;
+}
+
+.user__album:before{
+    content: "\25B6";
+    margin-right: 16px;
+    color: var(--color-active);
+}
+
+.non-selected:before{
+    content: "\25B6";
+    margin-right: 16px;
 }

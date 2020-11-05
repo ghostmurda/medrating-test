@@ -23,9 +23,11 @@ export default class Users{
     }
 
     clearUsersAlbums(user){
-        const albums = document.querySelectorAll('.user__album');
+        let albums = document.querySelectorAll('.user__album');
         for(let album of albums){
-            user.removeChild(album);
+            if (user.contains(album)){
+                user.removeChild(album);
+            }
         }
     }
 
@@ -34,6 +36,7 @@ export default class Users{
             user.addEventListener('click', () => {
                 this.clearUsersAlbums(user);
                 this.fillUsersAlbums(user);
+                user.classList.remove('user_non-selected', 'non-selected');
             })
         })
     }
