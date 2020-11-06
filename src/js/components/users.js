@@ -11,6 +11,17 @@ export default class Users{
         this.usersList = usersList;
     }
 
+    getCurrentCollection(user){
+        let collection = document.querySelectorAll('.user__album');
+        let currentCollection = [];
+        collection.forEach((item) => {
+            if (user.contains(item)){
+                currentCollection.push(item);
+            }
+        })
+        return currentCollection;
+    }
+
     fillUsersAlbums(user){
         getAlbums(user.id)
             .then(albumsList => {
@@ -21,7 +32,7 @@ export default class Users{
                     album.id = item.id;
                     user.append(album);
                 }
-                let currentAlbumsList = new Albums(document.querySelectorAll('.user__album'));
+                let currentAlbumsList = new Albums(this.getCurrentCollection(user));
                 currentAlbumsList.addListener();
             })
     }
