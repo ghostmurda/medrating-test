@@ -1,4 +1,4 @@
-import {getAlbumsReq} from "./api.js";
+import {getAlbumsReq} from "../api/api.js";
 import Albums from "./albums.js";
 
 const getAlbums = async (userId) => {

@@ -1,5 +1,5 @@
-import {store} from "./index.js";
-import {CATALOG, FAVORITES} from "./index.js";
+import {store} from "../index.js";
+import {CATALOG, FAVORITES} from "../index.js";
 
 const catalogLink = document.querySelector('.header__link_type-catalog');
 const favoritesLink = document.querySelector('.header__link_type-favorites');

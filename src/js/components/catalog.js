@@ -1,6 +1,6 @@
-import {getUsersReq} from "./api.js";
+import {getUsersReq} from "../api/api.js";
 import Users from "./users.js";
-import {catalogPage} from "./index.js";
+import {catalogPage} from "../index.js";
 
 const getUsers = async () => {
     let validUsersList = [];

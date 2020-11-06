@@ -1,4 +1,4 @@
-import Catalog from "./catalog.js";
+import Catalog from "./components/catalog.js";
 
 export const CATALOG = 'catalog';
 export const FAVORITES = 'favorites';

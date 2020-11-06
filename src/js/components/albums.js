@@ -1,4 +1,4 @@
-import {getPhotosReq} from "./api.js";
+import {getPhotosReq} from "../api/api.js";
 
 const getPhotos = async (albumId) => {
     let resp = await getPhotosReq(albumId);
