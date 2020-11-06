@@ -95,6 +95,11 @@ body{
     margin-bottom: 16px;
     cursor: pointer;
     transition: 0.2s;
+    font-size: 22px;
+}
+
+.user__album:active{
+    text-decoration: underline;
 }
 
 .user__album:hover{
