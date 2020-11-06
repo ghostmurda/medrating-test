@@ -1,25 +1,16 @@
 import {getPhotosReq} from "../api/api.js";
 import Photos from "./photos.js";
+import Component from "./component.js";
 
 const getPhotos = async (albumId) => {
     let resp = await getPhotosReq(albumId);
     return resp;
 }
 
-export default class Albums{
-    constructor(albumsList) {
+export default class Albums extends Component{
+    constructor(albumsList, selector) {
+        super(selector);
         this.albumsList = albumsList;
-    }
-
-    getCurrentCollection(album){
-        let collection = document.querySelectorAll('.album__photo');
-        let currentCollection = [];
-        collection.forEach((item) => {
-            if (album.contains(item)){
-                currentCollection.push(item);
-            }
-        })
-        return currentCollection;
     }
 
     fillAlbumsPhotos(album){
@@ -39,24 +30,15 @@ export default class Albums{
             })
     }
 
-    clearAlbumsPhotos(album){
-        let photos = document.querySelectorAll('.album__photo');
-        for(let photo of photos){
-            if (album.contains(photo)){
-                album.removeChild(photo);
-            }
-        }
-    }
-
     addListener(){
         this.albumsList.forEach(album => {
             album.addEventListener('click', (event) => {
                 if(album.classList.contains('non-selected')){
-                    this.clearAlbumsPhotos(album);
+                    this.clearCurrentCollection(album);
                     this.fillAlbumsPhotos(album);
                     album.classList.remove('non-selected');
                 } else{
-                    this.clearAlbumsPhotos(album);
+                    this.clearCurrentCollection(album);
                     album.classList.add('non-selected');
                 }
                 event.stopPropagation();

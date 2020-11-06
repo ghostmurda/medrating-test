@@ -1,25 +1,16 @@
 import {getAlbumsReq} from "../api/api.js";
 import Albums from "./albums.js";
+import Component from "./component.js";
 
 const getAlbums = async (userId) => {
     let resp = await getAlbumsReq(userId);
     return resp;
 }
 
-export default class Users{
-    constructor(usersList) {
+export default class Users extends Component{
+    constructor(usersList, selector) {
+        super(selector);
         this.usersList = usersList;
-    }
-
-    getCurrentCollection(user){
-        let collection = document.querySelectorAll('.user__album');
-        let currentCollection = [];
-        collection.forEach((item) => {
-            if (user.contains(item)){
-                currentCollection.push(item);
-            }
-        })
-        return currentCollection;
     }
 
     fillUsersAlbums(user){
@@ -32,29 +23,20 @@ export default class Users{
                     album.id = item.id;
                     user.append(album);
                 }
-                let currentAlbumsList = new Albums(this.getCurrentCollection(user));
+                let currentAlbumsList = new Albums(this.getCurrentCollection(user), 'album__photo');
                 currentAlbumsList.addListener();
             })
-    }
-
-    clearUsersAlbums(user){
-        let albums = document.querySelectorAll('.user__album');
-        for(let album of albums){
-            if (user.contains(album)){
-                user.removeChild(album);
-            }
-        }
     }
 
     addListener(){
         this.usersList.forEach(user => {
             user.addEventListener('click', () => {
                 if(user.classList.contains('non-selected')){
-                    this.clearUsersAlbums(user);
+                    this.clearCurrentCollection(user);
                     this.fillUsersAlbums(user);
                     user.classList.remove('user_non-selected', 'non-selected');
                 } else {
-                    this.clearUsersAlbums(user);
+                    this.clearCurrentCollection(user);
                     user.classList.add('user_non-selected', 'non-selected');
                 }
             })
