@@ -1,4 +1,5 @@
 import {getPhotosReq} from "../api/api.js";
+import Photos from "./photos.js";
 
 const getPhotos = async (albumId) => {
     let resp = await getPhotosReq(albumId);
@@ -10,6 +11,17 @@ export default class Albums{
         this.albumsList = albumsList;
     }
 
+    getCurrentCollection(album){
+        let collection = document.querySelectorAll('.album__photo');
+        let currentCollection = [];
+        collection.forEach((item) => {
+            if (album.contains(item)){
+                currentCollection.push(item);
+            }
+        })
+        return currentCollection;
+    }
+
     fillAlbumsPhotos(album){
         getPhotos(album.id)
             .then(photosList => {
@@ -17,9 +29,13 @@ export default class Albums{
                     let photo = document.createElement('img');
                     photo.className = 'album__photo';
                     photo.id = item.id;
-                    photo.src = item.url;
+                    photo.src = item.thumbnailUrl;
+                    photo.url = item.url;
+                    photo.title = item.title;
                     album.append(photo);
                 }
+                let currentPhotosList = new Photos(this.getCurrentCollection(album));
+                currentPhotosList.addListener();
             })
     }
 

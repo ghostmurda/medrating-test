@@ -96,6 +96,13 @@ body{
     cursor: pointer;
     transition: 0.2s;
     font-size: 22px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.user__album__title{
+    width: 660px;
+    margin-bottom: 16px;
 }
 
 .user__album:active{
@@ -117,7 +124,7 @@ body{
 }
 
 .album__photo{
-    margin-left: 96px;
+    margin-left: 56px;
     max-width: 500px;
     margin-bottom: 16px;
 }

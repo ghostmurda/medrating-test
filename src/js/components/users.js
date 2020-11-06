@@ -28,7 +28,7 @@ export default class Users{
                 for(let item of albumsList){
                     let album = document.createElement('div');
                     album.classList.add('user__album', 'non-selected');
-                    album.innerText = item.title;
+                    album.innerHTML = `<div class="user__album__title">${item.title}</div>`;
                     album.id = item.id;
                     user.append(album);
                 }
