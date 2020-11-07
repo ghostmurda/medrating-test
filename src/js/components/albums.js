@@ -42,7 +42,7 @@ export default class Albums extends Component{
                         photo.style.opacity = '1';
                     }
                 }
-                let currentPhotosList = new Photos(this.getCurrentCollection(album));
+                let currentPhotosList = new Photos(this.getCurrentCollection(album, 'photo-wrapper__photo'));
                 currentPhotosList.addListener();
 
                 let currentStarsList = new Stars(this.getCurrentCollection(album, 'photo-wrapper__star'));

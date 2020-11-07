@@ -11,7 +11,7 @@ export default class Photos{
                  let modalImg = modalWindow.querySelector('.modal-window__img');
 
                  new Promise(resolve => {
-                     overlay.style.display = 'block';
+                     overlay.style.display = 'flex';
                      setTimeout(() => resolve(), 10);
                  }).then(() => {
                      overlay.style.opacity = '1';

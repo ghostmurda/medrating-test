@@ -180,7 +180,7 @@ body{
 
 .modal-window__img{
     z-index: 210;
-    position: relative;
+    position: fixed;
 }
 
 .overlay{
@@ -193,4 +193,11 @@ body{
     display: none;
     opacity: 0;
     transition: 0.5s;
+    justify-content: center;
+}
+
+.overlay__text{
+    font-family: var(--font-main);
+    font-size: var(--size-menu);
+    margin-top: 128px;
 }
