@@ -3,8 +3,8 @@ export default class Component{
         this.selector = selector;
     }
 
-    getCurrentCollection(subject){
-        let collection = document.querySelectorAll(`.${this.selector}`);
+    getCurrentCollection(subject, selector = this.selector){
+        let collection = document.querySelectorAll(`.${selector}`);
         let currentCollection = [];
         collection.forEach((item) => {
             if (subject.contains(item)){

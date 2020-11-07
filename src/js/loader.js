@@ -4,6 +4,7 @@ const scripts = [
     "src/js/components/component.js",
     "src/js/components/catalog.js",
     "src/js/index.js",
+    "src/js/components/stars.js",
     "src/js/components/photos.js",
     "src/js/components/albums.js",
     "src/js/components/users.js",

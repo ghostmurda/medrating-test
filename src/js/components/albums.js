@@ -1,6 +1,7 @@
 import {getPhotosReq} from "../api/api.js";
 import Photos from "./photos.js";
 import Component from "./component.js";
+import Stars from "./stars.js";
 
 const getPhotos = async (albumId) => {
     let resp = await getPhotosReq(albumId);
@@ -43,6 +44,9 @@ export default class Albums extends Component{
                 }
                 let currentPhotosList = new Photos(this.getCurrentCollection(album));
                 currentPhotosList.addListener();
+
+                let currentStarsList = new Stars(this.getCurrentCollection(album, 'photo-wrapper__star'));
+                currentStarsList.addListener();
             })
     }
 
