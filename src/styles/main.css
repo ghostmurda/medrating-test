@@ -14,6 +14,9 @@ body{
 }
 
 .header{
+    position: fixed;
+    top: 0;
+    z-index: 150;
     background: var(--color-header);
     border-bottom: var(--border);
     box-shadow: var(--shadow);
@@ -27,12 +30,15 @@ body{
 .header__link_type-catalog, .header__link_type-favorites{
     font-family: var(--font-main);
     font-size: var(--size-menu);
-    margin-right: 64px;
     color: white;
     cursor: pointer;
     user-select: none;
     -moz-user-select: none;
     transition: 0.2s;
+}
+
+.header__link_type-catalog{
+    margin-right: 64px;
 }
 
 .header__link_type-catalog:hover, .header__link_type-favorites:hover{
@@ -41,6 +47,18 @@ body{
 
 .header__link_type-catalog:active, .header__link_type-favorites:active{
     color: var(--color-active);
+}
+
+.content_type-favorites{
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 66px;
+    margin-left: 54px;
+}
+
+.content_type-catalog{
+    margin-top: 66px;
 }
 
 .active{
@@ -89,10 +107,6 @@ body{
     color: var(--color-active);
 }
 
-.user_non-selected:active{
-    text-decoration: underline;
-}
-
 .user__album{
     margin-left: 64px;
     margin-bottom: 16px;
@@ -106,10 +120,6 @@ body{
 .user__album__title{
     width: 660px;
     margin-bottom: 16px;
-}
-
-.user__album:active{
-    text-decoration: underline;
 }
 
 .user__album:hover{
@@ -131,6 +141,7 @@ body{
     max-width: 500px;
     margin-bottom: 16px;
     transition: 1s;
+    cursor: pointer;
 }
 
 .photo-wrapper__photo:nth-child(1){
@@ -142,11 +153,12 @@ body{
     color: gray;
     font-size: 35px;
     transform: translateX(28px) translateY(-12px);
-    transition: 1s;
+    transition: opacity 1s;
+    cursor: pointer;
 }
 
 .photo-wrapper__star:hover{
-    font-size: 30px;
+    font-size: 32px;
 }
 
 .non-selected:before{
