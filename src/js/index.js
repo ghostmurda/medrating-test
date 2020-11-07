@@ -1,4 +1,5 @@
 import Catalog from "./components/catalog.js";
+import Favorites from "./components/favorites.js";
 
 export const CATALOG = 'catalog';
 export const FAVORITES = 'favorites';
@@ -29,6 +30,10 @@ function showPage(page){
             break
         }
         case FAVORITES: {
+            let favorites = new Favorites();
+            favorites.clearFavoritePhotos();
+            favorites.fillFavoritePhotos();
+
             favoritesPage.classList.remove('hide');
             catalogPage.classList.add('hide');
             break

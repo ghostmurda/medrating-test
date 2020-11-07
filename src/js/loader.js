@@ -3,6 +3,7 @@ const scripts = [
     "src/js/api/api.js",
     "src/js/components/component.js",
     "src/js/components/catalog.js",
+    "src/js/components/favorites.js",
     "src/js/index.js",
     "src/js/components/stars.js",
     "src/js/components/photos.js",

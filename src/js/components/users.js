@@ -23,7 +23,7 @@ export default class Users extends Component{
                     album.id = item.id;
                     user.append(album);
                 }
-                let currentAlbumsList = new Albums(this.getCurrentCollection(user), 'album__photo-wrapper');
+                let currentAlbumsList = new Albums(this.getCurrentCollection(user), 'photo-wrapper');
                 currentAlbumsList.addListener();
             })
     }

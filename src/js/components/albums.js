@@ -22,7 +22,7 @@ export default class Albums extends Component{
                     let star = document.createElement('span');
                     let photo = document.createElement('img');
 
-                    photoWrapper.className = 'album__photo-wrapper';
+                    photoWrapper.className = 'photo-wrapper';
                     album.append(photoWrapper);
 
                     star.className = 'photo-wrapper__star';

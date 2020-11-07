@@ -141,7 +141,7 @@ body{
     position: absolute;
     color: gray;
     font-size: 35px;
-    transform: translateX(30px) translateY(-12px);
+    transform: translateX(28px) translateY(-12px);
     transition: 1s;
 }
 
@@ -156,5 +156,5 @@ body{
 }
 
 .star_selected{
-    color: yellow;
+    color: #ff7800;
 }
