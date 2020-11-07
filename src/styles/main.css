@@ -61,7 +61,6 @@ body{
     font-size: var(--size-menu);
     margin-bottom: 16px;
     transition: 0.2s;
-    cursor: pointer;
 
     user-select: none;
     -moz-user-select: none;
@@ -79,6 +78,10 @@ body{
     content: "\25BC";
     margin-right: 16px;
     color: var(--color-active);
+}
+
+.user_non-selected{
+    cursor: pointer;
 }
 
 .user_non-selected:hover{
@@ -123,17 +126,34 @@ body{
     color: var(--color-active);
 }
 
-.album__photo{
+.photo-wrapper__photo{
     margin-left: 56px;
     max-width: 500px;
     margin-bottom: 16px;
 }
 
-.album__photo:nth-child(1){
+.photo-wrapper__photo:nth-child(1){
     margin-top: 16px;
+}
+
+.photo-wrapper__star{
+    position: absolute;
+    color: gray;
+    font-size: 35px;
+    transform: translateX(30px) translateY(-12px);
+    transition: 0.2s;
+}
+
+.photo-wrapper__star:hover{
+    font-size: 30px;
 }
 
 .non-selected:before{
     content: "\25B6";
     margin-right: 16px;
+    cursor: pointer;
+}
+
+.star_selected{
+    color: yellow;
 }

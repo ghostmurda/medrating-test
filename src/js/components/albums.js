@@ -17,13 +17,23 @@ export default class Albums extends Component{
         getPhotos(album.id)
             .then(photosList => {
                 for(let item of photosList){
+                    let photoWrapper = document.createElement('div');
+                    let star = document.createElement('span');
                     let photo = document.createElement('img');
-                    photo.className = 'album__photo';
+
+                    photoWrapper.className = 'album__photo-wrapper';
+                    album.append(photoWrapper);
+
+                    star.className = 'photo-wrapper__star';
+                    star.innerHTML = '&#9733;';
+                    photoWrapper.append(star);
+
+                    photo.className = 'photo-wrapper__photo';
                     photo.id = item.id;
                     photo.src = item.thumbnailUrl;
                     photo.url = item.url;
                     photo.title = item.title;
-                    album.append(photo);
+                    photoWrapper.append(photo);
                 }
                 let currentPhotosList = new Photos(this.getCurrentCollection(album));
                 currentPhotosList.addListener();
