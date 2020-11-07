@@ -26,6 +26,10 @@ export default class Albums extends Component{
                     album.append(photoWrapper);
 
                     star.className = 'photo-wrapper__star';
+                    let localImg = JSON.parse(localStorage.getItem(item.id));
+                    if (localImg){
+                        star.classList.add('star_selected');
+                    }
                     star.innerHTML = '&#9733;';
                     star.style.opacity = '0';
                     photoWrapper.append(star);
