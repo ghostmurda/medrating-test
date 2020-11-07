@@ -26,6 +26,7 @@ export default class Albums extends Component{
 
                     star.className = 'photo-wrapper__star';
                     star.innerHTML = '&#9733;';
+                    star.style.opacity = '0';
                     photoWrapper.append(star);
 
                     photo.className = 'photo-wrapper__photo';
@@ -33,7 +34,12 @@ export default class Albums extends Component{
                     photo.src = item.thumbnailUrl;
                     photo.url = item.url;
                     photo.title = item.title;
+                    photo.style.opacity = '0';
                     photoWrapper.append(photo);
+                    photo.onload = () => {
+                        star.style.opacity = '1';
+                        photo.style.opacity = '1';
+                    }
                 }
                 let currentPhotosList = new Photos(this.getCurrentCollection(album));
                 currentPhotosList.addListener();

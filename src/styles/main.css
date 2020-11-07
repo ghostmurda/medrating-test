@@ -130,6 +130,7 @@ body{
     margin-left: 56px;
     max-width: 500px;
     margin-bottom: 16px;
+    transition: 1s;
 }
 
 .photo-wrapper__photo:nth-child(1){
@@ -141,7 +142,7 @@ body{
     color: gray;
     font-size: 35px;
     transform: translateX(30px) translateY(-12px);
-    transition: 0.2s;
+    transition: 1s;
 }
 
 .photo-wrapper__star:hover{
