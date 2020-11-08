@@ -11,19 +11,28 @@ export default class Photos{
                  let modalImg = modalWindow.querySelector('.modal-window__img');
 
                  new Promise(resolve => {
+                     modalImg.style.opacity = '0';
                      overlay.style.display = 'flex';
                      setTimeout(() => resolve(), 10);
                  }).then(() => {
                      overlay.style.opacity = '1';
                      modalWindow.style.display = 'flex';
                      modalImg.src = photo.url;
+                     modalImg.onload = () => {
+                        modalImg.style.opacity = '1';
+                     }
 
                      let listener = () => {
-                         overlay.style.display = 'none';
-                         modalWindow.style.display = 'none';
-                         overlay.style.opacity = '0';
-                         modalImg.src = '';
-                         window.removeEventListener('click', listener);
+                         new Promise(resolve => {
+                            overlay.style.opacity = '0';
+                            modalImg.style.opacity = '0';
+                            setTimeout(() => resolve(), 500);
+                         }).then(() => {
+                            overlay.style.display = 'none';
+                            modalWindow.style.display = 'none';
+                            modalImg.src = '';
+                            window.removeEventListener('click', listener);
+                         })
                      }
 
                      window.addEventListener('click', listener);
