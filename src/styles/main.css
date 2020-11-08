@@ -209,3 +209,9 @@ body{
     color: white;
     font-weight: 500;
 }
+
+@media (max-width: 500px){
+    .overlay__text{
+        font-size: var(--size-text);
+    }
+}
